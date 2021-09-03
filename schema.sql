@@ -17,3 +17,6 @@ CREATE TABLE `cows` (
   `description` TEXT DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
+
+INSERT INTO cows VALUES (NULL, 'a herbaceous plant with bright yellow cup-shaped flowers, common in grassland and as a garden weed. All kinds are poisonous and generally avoided by livestock.
+');
