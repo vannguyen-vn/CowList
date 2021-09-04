@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import CowList from './components/CowList.jsx';
+
 const axios = require('axios');
 
 
@@ -9,8 +10,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cows : []
+      cows: [],
+      name: "",
+      description: ""
     }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -18,13 +23,44 @@ class App extends React.Component {
     this.getCows();
   }
 
+  handleChange(event) {
+    event.preventDefault();
+    let property = event.target.name;
+    this.setState({[property]: event.target.value});
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    let newDescription = this.state.description;
+    let newName = this.state.name;
+    this.postCow(newName, newDescription);
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Cow List</h1>
+        <CowList cows={this.state.cows} />
+        <div>
+          <form>
+            <h2>Add a cow</h2>
+            <div><input type="text" name='name' value={this.state.name} onChange={this.handleChange} /></div>
+            <div><input type="text" name='description' value={this.state.description} onChange={this.handleChange} /></div>
+            <input type="submit" value="Submit" onClick={this.handleSubmit} />
+          </form>
+        </div>
+      </div>
+    )
+  }
+
+
   getCows() {
     axios.get(`/cows`)
-    .then(res => {
-      console.log(res);
-      this.setState({cows: res.data});
-      this.render();
-    });
+      .then(res => {
+        console.log(res)
+        this.setState({ cows: res.data.results });
+        this.render();
+      });
   }
 
   postCow(name, description) {
@@ -35,14 +71,7 @@ class App extends React.Component {
     });
   }
 
-  render () {
-    return (
-      <div>
-          <h1>Cow List</h1>
-          <CowList cows = {this.state.cows} />
-      </div>
-    )
-  }
+
 };
 
 ReactDOM.render(<App />, document.getElementById('app'));
