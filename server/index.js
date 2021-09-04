@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 app.get('/cows', (req, res) => {
   var queryString = `SELECT * FROM cows;`;
   db.query(queryString, (err, data, fields) => {
+    console.log(data);
     if(err) {
       throw err;
     }
@@ -21,8 +22,9 @@ app.get('/cows', (req, res) => {
 })
 
 app.post('/cows', (req, res) => {
+  console.log(req.body);
+
   var queryString = `INSERT INTO cows (name, description) VALUES (?, ?)`;
-  console.log(newCow);
   db.query(queryString, [req.body.name, req.body.description], (err) => {
      if (err) throw (err);
      res.sendStatus(201);
