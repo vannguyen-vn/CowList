@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import CowList from './components/CowList.jsx';
+import CowEntry from './components/CowEntry.jsx';
 
 const axios = require('axios');
 
@@ -12,7 +13,8 @@ class App extends React.Component {
     this.state = {
       cows: [],
       name: "",
-      description: ""
+      description: "",
+      selectedCow: 'null'
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,6 +23,7 @@ class App extends React.Component {
   componentDidMount() {
     console.log("Successful Mount!");
     this.getCows();
+
   }
 
   handleChange(event) {
@@ -36,11 +39,16 @@ class App extends React.Component {
     this.postCow(newName, newDescription);
   }
 
+  handleClick(value){
+    this.setState({ selectedCow: value});
+    console.log('clicked', value);
+  }
+
   render() {
     return (
       <div>
         <h1>Cow List</h1>
-        <CowList cows={this.state.cows} />
+        <CowList cows={this.state.cows} handleClick={this.handleClick.bind(this)} cowSelected={this.state.selectedCow} />
         <div>
           <form>
             <h2>Add a cow</h2>
@@ -71,7 +79,9 @@ class App extends React.Component {
     });
   }
 
+   componentDidUpdate() {
 
+  }
 };
 
 ReactDOM.render(<App />, document.getElementById('app'));
