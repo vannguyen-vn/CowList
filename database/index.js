@@ -22,4 +22,4 @@ connection.connect((err) => {
 
 
 // Don't forget to export your functions!
-module.exports = { connection };
+module.exports = connection;

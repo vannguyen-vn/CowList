@@ -11,12 +11,12 @@ CREATE DATABASE cowapp;
 USE cowapp;
 
 DROP TABLE IF EXISTS `cows`;
+
 CREATE TABLE `cows` (
- `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
 	`name` TEXT NULL DEFAULT NULL,
-  `description` TEXT DEFAULT NULL,
+  `description` TEXT NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
-INSERT INTO cows VALUES (NULL, 'a herbaceous plant with bright yellow cup-shaped flowers, common in grassland and as a garden weed. All kinds are poisonous and generally avoided by livestock.
-');
+
