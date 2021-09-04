@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import CowList from './components/CowList.jsx';
-import CowEntry from './components/CowEntry.jsx';
+import Description from './components/CowDetail.jsx';
+
 
 const axios = require('axios');
 
@@ -47,8 +48,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <Description cow={this.state.selectedCow} />
         <h1>Cow List</h1>
-        <CowList cows={this.state.cows} handleClick={this.handleClick.bind(this)} cowSelected={this.state.selectedCow} />
+        <CowList cows={this.state.cows} handleClick={this.handleClick.bind(this)} />
         <div>
           <form>
             <h2>Add a cow</h2>

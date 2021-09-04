@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import CowEntry from './CowEntry.jsx';
 
-const CowList = ({cows, handleClick, cowSelected}) => {
+const CowList = ({cows, handleClick}) => {
   return (
     <div className='cowlist'>
       { cows.map((cow, index) => (
@@ -10,7 +10,6 @@ const CowList = ({cows, handleClick, cowSelected}) => {
           cow={cow}
           key = {cow.id}
           handleClick = {handleClick}
-          cowSelected = {cowSelected}
         />
       ))}
     </div>
