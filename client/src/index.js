@@ -48,15 +48,16 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <div className='picture'></div>
         <Description cow={this.state.selectedCow} />
         <h1>Cow List</h1>
         <CowList cows={this.state.cows} handleClick={this.handleClick.bind(this)} />
-        <div>
+        <div className='addCow'>
           <form>
-            <h2>Add a cow</h2>
+            <h1>Add a cow</h1>
             <div><input type="text" name='name' value={this.state.name} onChange={this.handleChange} /></div>
-            <div><input type="text" name='description' value={this.state.description} onChange={this.handleChange} /></div>
-            <input type="submit" value="Submit" onClick={this.handleSubmit} />
+            <div><textarea type="text" name='description' value={this.state.description} onChange={this.handleChange} /></div>
+            <button type="submit" value="Submit" onClick={this.handleSubmit} >Submit</button>
           </form>
         </div>
       </div>

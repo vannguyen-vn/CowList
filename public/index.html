@@ -1,29 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cow List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Comfortaa&family=Handlee&display=swap"
+    rel="stylesheet">
   <style>
+    div,
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    body {
+      font-family: 'Comfortaa', cursive;
+      font-size: 14px;
+      color: #F6E1E7;
+      background-color: #ffffff;
+      line-height: 140%;
+    }
+
+    a {
+      color: #666;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #CDCEE7;
+    }
+
+    h1 {
+      font-family: 'Amatic SC', cursive;
+      color: #98D6EC;
+
+    }
+
     .hidden {
       display: none;
     }
-    .description .title{
+
+    .description .title {
       text-transform: uppercase;
       font-size: 18px;
       font-weight: bold;
+      color: #f7a2ba;
     }
 
-    .description .info{
+    .description .info {
       margin-bottom: 20px;
       border-bottom: 1px dashed #ccc;
       padding-bottom: 10px;
       margin-bottom: 20px;
+      color: #f7a2ba;
+    }
+
+    #app {
+      width: 300px;
+      margin: 0px auto;
+    }
+
+    .picture {
+      width: 200px;
+      height: 200px;
+      background: url('./images/picture.png');
+      background-size: cover;
+    }
+
+    .addCow {
+      border-top: 1px dashed #ccc;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    input,
+    textarea, button {
+      outline: 1px dotted #F6E1E7;
+      border: none;
+      width: 100%;
+      margin-bottom: 5px;
+      background-color: #fafafa;
+      font-family: 'Comfortaa', cursive;
+      font-size: 14px;
+      color: #666;
+    }
+    button{
+      width: 80px;
+      margin: auto;
+      background-color: #f7a2ba;
+      font-family: 'Amatic SC', cursive;
+      cursor: pointer;
+      color: #fff;
+    }
+    button:hover{
+      background-color: #e6e6e6;
+      color: #000;
     }
   </style>
 </head>
+
 <body>
   <div id="app">If you can see this, React isn't running!</div>
   <script src="app.js"></script>
 </body>
+
 </html>
