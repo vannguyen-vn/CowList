@@ -30,7 +30,7 @@ class App extends React.Component {
   handleChange(event) {
     event.preventDefault();
     let property = event.target.name;
-    this.setState({[property]: event.target.value});
+    this.setState({ [property]: event.target.value });
   }
 
   handleSubmit(event) {
@@ -40,9 +40,33 @@ class App extends React.Component {
     this.postCow(newName, newDescription);
   }
 
-  handleClick(value){
-    this.setState({ selectedCow: value});
+  handleClick(value) {
+    this.setState({ selectedCow: value });
     console.log('clicked', value);
+  }
+
+  getCows() {
+    axios.get(`/cows`)
+      .then(res => {
+        this.setState({ cows: res.data.results });
+      })
+      .catch(error => {
+        console.log('Error adding a cow', error);
+      });
+  }
+
+  postCow(name, description) {
+    axios.post('/cows', {
+      cow: {
+        name: name, description: description
+      }
+    })
+      .then(() => {
+        this.getCows();
+      })
+      .catch(error => {
+        console.log('Error adding a cow', error);
+      });
   }
 
   render() {
@@ -63,28 +87,7 @@ class App extends React.Component {
       </div>
     )
   }
-
-
-  getCows() {
-    axios.get(`/cows`)
-      .then(res => {
-        console.log(res)
-        this.setState({ cows: res.data.results });
-        this.render();
-      });
-  }
-
-  postCow(name, description) {
-    axios.post('/cows', {
-      cow: {
-        name: name, description: description
-      }
-    });
-  }
-
-   componentDidUpdate() {
-
-  }
 };
+
 
 ReactDOM.render(<App />, document.getElementById('app'));
