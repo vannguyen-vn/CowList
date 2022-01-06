@@ -6,9 +6,9 @@ Create a CRUD app using React (without Redux) that interfaces with a RESTful API
 
 ### Technlogies
 
-1. For server: Node.js with [Express](https://www.npmjs.com/package/express) and [nodemon](https://www.npmjs.com/package/nodemon)
-1. For frontend: [React](https://www.npmjs.com/package/react) with JSX
-1. For AJAX requests: [jQuery](https://www.npmjs.com/package/jquery), [axios](https://www.npmjs.com/package/axios),or fetch
+1. For server: Node.js with [Express](https://www.npmjs.com/package/express)
+1. For frontend: [React](https://www.npmjs.com/package/react)
+1. For AJAX requests: [axios](https://www.npmjs.com/package/axios)
 1. For database: MySQL (with [mysql](https://www.npmjs.com/package/mysql)).
 
 ## Installation
